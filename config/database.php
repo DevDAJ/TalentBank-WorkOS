@@ -3,6 +3,17 @@
 use Illuminate\Support\Str;
 use Pdo\Mysql;
 
+$databaseUrl = env('DB_URL', env('DATABASE_URL'));
+
+if (is_string($databaseUrl) && preg_match('/(ep-[\w-]+)-pooler\./', $databaseUrl, $matches)) {
+    $endpointOption = 'endpoint='.$matches[1];
+
+    if (! str_contains($databaseUrl, 'endpoint%3D') && ! str_contains($databaseUrl, $endpointOption)) {
+        $databaseUrl .= (str_contains($databaseUrl, '?') ? '&' : '?')
+            .'options='.rawurlencode($endpointOption);
+    }
+}
+
 return [
 
     /*
@@ -86,7 +97,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DB_URL', env('DATABASE_URL')),
+            'url' => $databaseUrl,
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'laravel'),
