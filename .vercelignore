@@ -1,0 +1,16 @@
+/vendor
+/node_modules
+/storage
+.env
+.env.*
+.git
+.gitignore
+.gitattributes
+.editorconfig
+composer.lock
+package-lock.json
+phpunit.xml
+README.md
+tsconfig.json
+postcss.config.js
+tailwind.config.js
