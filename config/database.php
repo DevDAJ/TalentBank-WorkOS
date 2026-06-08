@@ -4,14 +4,10 @@ use Illuminate\Support\Str;
 use Pdo\Mysql;
 
 $databaseUrl = env('DB_URL', env('DATABASE_URL'));
+$neonEndpoint = null;
 
 if (is_string($databaseUrl) && preg_match('/(ep-[\w-]+)-pooler\./', $databaseUrl, $matches)) {
-    $endpointOption = 'endpoint='.$matches[1];
-
-    if (! str_contains($databaseUrl, 'endpoint%3D') && ! str_contains($databaseUrl, $endpointOption)) {
-        $databaseUrl .= (str_contains($databaseUrl, '?') ? '&' : '?')
-            .'options='.rawurlencode($endpointOption);
-    }
+    $neonEndpoint = $matches[1];
 }
 
 return [
@@ -108,6 +104,7 @@ return [
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => env('DB_SSLMODE', 'prefer'),
+            'neon_endpoint' => $neonEndpoint,
         ],
 
         'sqlsrv' => [
