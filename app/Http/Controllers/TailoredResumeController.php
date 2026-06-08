@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Concerns\GeneratesCvPdf;
 use App\Models\Education;
 use App\Models\Project;
 use App\Models\Skill;
 use App\Models\WorkExperience;
 use App\Services\JobDescriptionKeywordExtractor;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class TailoredResumeController extends Controller
 {
+    use GeneratesCvPdf;
     public function index(): Response
     {
         return Inertia::render('TailoredResume', [
@@ -124,13 +125,14 @@ class TailoredResumeController extends Controller
         $originalSummary = $user->summary;
         $user->summary = $data['summary'];
 
-        $pdf = Pdf::loadView("cv.templates.{$template}", [
-            'profile' => $user,
-            'experiences' => collect($data['experiences'] ?? []),
-            'education' => collect($data['education'] ?? []),
-            'skills' => collect($data['skills'] ?? []),
-            'projects' => collect($data['projects'] ?? []),
-        ]);
+        $pdf = $this->makeCvPdf(
+            $template,
+            $user,
+            collect($data['experiences'] ?? []),
+            collect($data['education'] ?? []),
+            collect($data['skills'] ?? []),
+            collect($data['projects'] ?? []),
+        );
 
         $user->summary = $originalSummary;
 

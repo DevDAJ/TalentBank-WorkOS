@@ -3,21 +3,20 @@
 <head>
     <meta charset="utf-8">
     <style>
-        body { font-family: 'Times New Roman', Georgia, serif; font-size: 11pt; line-height: 1.4; color: #000; margin: 1in; }
-        h1 { font-size: 18pt; margin: 0 0 4pt 0; text-transform: uppercase; letter-spacing: 1pt; }
-        .contact { font-size: 10pt; margin-bottom: 16pt; color: #333; }
+        @include('cv.partials.pdf-layout')
+        body { font-family: 'Times New Roman', Georgia, serif; font-size: 10pt; line-height: 1.3; color: #000; }
+        h1 { font-size: 17pt; margin: 0 0 3pt 0; text-transform: uppercase; letter-spacing: 0.8pt; }
+        .contact { font-size: 9.5pt; margin-bottom: 8pt; color: #333; }
         .contact span { margin: 0 8pt 0 0; }
-        h2 { font-size: 13pt; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 2pt; margin: 14pt 0 6pt 0; letter-spacing: 0.5pt; }
-        .entry { margin-bottom: 8pt; }
+        h2 { font-size: 11.5pt; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 1pt; margin: 8pt 0 4pt 0; letter-spacing: 0.4pt; }
         .entry-header { display: flex; justify-content: space-between; }
-        .entry-title { font-weight: bold; font-size: 11pt; }
-        .entry-subtitle { font-style: italic; font-size: 10pt; color: #333; }
-        .entry-date { font-size: 10pt; color: #555; text-align: right; }
-        .entry-desc { font-size: 10pt; margin: 2pt 0 0 0; white-space: pre-line; }
-        ul { margin: 2pt 0 0 14pt; padding: 0; }
-        li { font-size: 10pt; margin-bottom: 1pt; }
-        .skill-item { font-size: 10pt; }
-        .section { page-break-inside: avoid; }
+        .entry-title { font-weight: bold; font-size: 10.5pt; }
+        .entry-subtitle { font-style: italic; font-size: 9.5pt; color: #333; }
+        .entry-date { font-size: 9.5pt; color: #555; text-align: right; }
+        .entry-desc { font-size: 9.5pt; margin: 1pt 0 0 0; white-space: pre-line; }
+        ul { margin: 1pt 0 0 12pt; padding: 0; }
+        li { font-size: 9.5pt; margin-bottom: 0; }
+        .skill-item { font-size: 9.5pt; }
     </style>
 </head>
 <body>
@@ -34,7 +33,7 @@
     @if($profile->summary)
     <div class="section">
         <h2>Professional Summary</h2>
-        <p style="font-size:10pt;">{{ $profile->summary }}</p>
+        <p style="font-size:9.5pt;">{{ $profile->summary }}</p>
     </div>
     @endif
 
@@ -84,7 +83,7 @@
     <div class="section">
         <h2>Skills</h2>
         @foreach($skills->groupBy('category') as $category => $catSkills)
-        <p style="font-size:10pt; margin:2pt 0;">
+        <p style="font-size:9.5pt; margin:1pt 0;">
             <strong>{{ $category }}:</strong>
             {{ $catSkills->pluck('name')->join(', ') }}
         </p>

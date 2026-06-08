@@ -3,22 +3,21 @@
 <head>
     <meta charset="utf-8">
     <style>
-        body { font-family: 'Helvetica', 'Arial', sans-serif; font-size: 10.5pt; line-height: 1.5; color: #1a1a1a; margin: 1in; }
-        h1 { font-size: 20pt; margin: 0 0 2pt 0; color: #2563eb; }
-        .contact { font-size: 9.5pt; margin-bottom: 14pt; color: #555; }
+        @include('cv.partials.pdf-layout')
+        body { font-family: 'Helvetica', 'Arial', sans-serif; font-size: 10pt; line-height: 1.35; color: #1a1a1a; }
+        h1 { font-size: 18pt; margin: 0 0 2pt 0; color: #2563eb; }
+        .contact { font-size: 9pt; margin-bottom: 8pt; color: #555; }
         .contact span { margin: 0 8pt 0 0; }
-        h2 { font-size: 12pt; color: #2563eb; border-bottom: 1.5px solid #2563eb; padding-bottom: 2pt; margin: 12pt 0 6pt 0; }
-        .entry { margin-bottom: 8pt; }
+        h2 { font-size: 11pt; color: #2563eb; border-bottom: 1.5px solid #2563eb; padding-bottom: 1pt; margin: 8pt 0 4pt 0; }
         .entry-header { display: flex; justify-content: space-between; }
-        .entry-title { font-weight: bold; font-size: 11pt; color: #1a1a1a; }
-        .entry-subtitle { font-size: 10pt; color: #444; }
-        .entry-date { font-size: 9.5pt; color: #777; text-align: right; white-space: nowrap; }
-        .entry-desc { font-size: 9.5pt; margin: 3pt 0 0 0; white-space: pre-line; color: #333; }
-        ul { margin: 2pt 0 0 14pt; padding: 0; }
-        li { font-size: 9.5pt; margin-bottom: 1pt; }
-        .skill-group { margin-bottom: 4pt; font-size: 9.5pt; }
+        .entry-title { font-weight: bold; font-size: 10.5pt; color: #1a1a1a; }
+        .entry-subtitle { font-size: 9.5pt; color: #444; }
+        .entry-date { font-size: 9pt; color: #777; text-align: right; white-space: nowrap; }
+        .entry-desc { font-size: 9pt; margin: 2pt 0 0 0; white-space: pre-line; color: #333; }
+        ul { margin: 1pt 0 0 12pt; padding: 0; }
+        li { font-size: 9pt; margin-bottom: 0; }
+        .skill-group { margin-bottom: 2pt; font-size: 9pt; }
         .skill-group strong { color: #2563eb; }
-        .section { page-break-inside: avoid; }
     </style>
 </head>
 <body>
@@ -35,7 +34,7 @@
     @if($profile->summary)
     <div class="section">
         <h2>Professional Summary</h2>
-        <p style="font-size:9.5pt;">{{ $profile->summary }}</p>
+        <p style="font-size:9pt;">{{ $profile->summary }}</p>
     </div>
     @endif
 
@@ -93,7 +92,7 @@
         @foreach($projects as $proj)
         <div class="entry">
             <div class="entry-title">{{ $proj->name }}</div>
-            @if($proj->description)<p style="font-size:9.5pt; margin:1pt 0;">{{ $proj->description }}</p>@endif
+            @if($proj->description)<p style="font-size:9pt; margin:1pt 0;">{{ $proj->description }}</p>@endif
             @if($proj->technologies_used)<p style="font-size:8.5pt; color:#555; margin:1pt 0;">{{ implode(', ', $proj->technologies_used) }}</p>@endif
         </div>
         @endforeach

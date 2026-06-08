@@ -29,6 +29,7 @@
 
       "DB_CONNECTION": "pgsql",
       "DB_SSLMODE": "require",
+      "NEON_REQUIRE_ENDPOINT_OPTION": "true",
       "CACHE_STORE": "array",
       "QUEUE_CONNECTION": "sync",
       "LOG_CHANNEL": "stderr",

@@ -6,7 +6,11 @@ use Pdo\Mysql;
 $databaseUrl = env('DB_URL', env('DATABASE_URL'));
 $neonEndpoint = null;
 
-if (is_string($databaseUrl) && preg_match('/(ep-[\w-]+)-pooler\./', $databaseUrl, $matches)) {
+if (
+    is_string($databaseUrl)
+    && preg_match('/(ep-[\w-]+)-pooler\./', $databaseUrl, $matches)
+    && filter_var(env('NEON_REQUIRE_ENDPOINT_OPTION', env('VERCEL')), FILTER_VALIDATE_BOOL)
+) {
     $neonEndpoint = $matches[1];
 }
 

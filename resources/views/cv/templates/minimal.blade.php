@@ -3,24 +3,23 @@
 <head>
     <meta charset="utf-8">
     <style>
-        body { font-family: 'Calibri', 'Corbel', sans-serif; font-size: 10pt; line-height: 1.6; color: #222; margin: 1in; }
-        h1 { font-size: 22pt; margin: 0 0 2pt 0; font-weight: 300; letter-spacing: 2pt; text-transform: uppercase; }
-        .contact { font-size: 9pt; margin-bottom: 18pt; color: #666; }
-        .contact span { margin: 0 10pt 0 0; }
-        h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: 1.5pt; margin: 16pt 0 8pt 0; font-weight: 600; color: #333; }
-        hr { border: none; border-top: 0.5px solid #bbb; margin: 0 0 8pt 0; }
-        .entry { margin-bottom: 10pt; }
+        @include('cv.partials.pdf-layout')
+        body { font-family: 'Calibri', 'Corbel', sans-serif; font-size: 9.5pt; line-height: 1.4; color: #222; }
+        h1 { font-size: 19pt; margin: 0 0 2pt 0; font-weight: 300; letter-spacing: 1.5pt; text-transform: uppercase; }
+        .contact { font-size: 8.5pt; margin-bottom: 8pt; color: #666; }
+        .contact span { margin: 0 8pt 0 0; }
+        h2 { font-size: 10pt; text-transform: uppercase; letter-spacing: 1.2pt; margin: 8pt 0 4pt 0; font-weight: 600; color: #333; }
+        hr { border: none; border-top: 0.5px solid #bbb; margin: 0 0 4pt 0; }
         .entry-header { display: flex; justify-content: space-between; }
-        .entry-title { font-weight: 600; font-size: 10.5pt; }
-        .entry-subtitle { font-size: 9.5pt; color: #555; }
-        .entry-date { font-size: 9pt; color: #666; text-align: right; white-space: nowrap; }
-        .entry-desc { font-size: 9.5pt; margin: 3pt 0 0 0; white-space: pre-line; color: #333; }
-        ul { margin: 2pt 0 0 14pt; padding: 0; }
-        li { font-size: 9pt; margin-bottom: 1pt; }
-        .skill-group { margin-bottom: 2pt; font-size: 9.5pt; }
+        .entry-title { font-weight: 600; font-size: 10pt; }
+        .entry-subtitle { font-size: 9pt; color: #555; }
+        .entry-date { font-size: 8.5pt; color: #666; text-align: right; white-space: nowrap; }
+        .entry-desc { font-size: 9pt; margin: 2pt 0 0 0; white-space: pre-line; color: #333; }
+        ul { margin: 1pt 0 0 12pt; padding: 0; }
+        li { font-size: 8.5pt; margin-bottom: 0; }
+        .skill-group { margin-bottom: 1pt; font-size: 9pt; }
         .skill-group strong { font-weight: 600; }
-        .section { page-break-inside: avoid; }
-        .summary { font-size: 9.5pt; color: #333; }
+        .summary { font-size: 9pt; color: #333; }
     </style>
 </head>
 <body>
