@@ -7,10 +7,6 @@
 .gitignore
 .gitattributes
 .editorconfig
-composer.lock
-package-lock.json
 phpunit.xml
 README.md
-tsconfig.json
-postcss.config.js
-tailwind.config.js
+tests
