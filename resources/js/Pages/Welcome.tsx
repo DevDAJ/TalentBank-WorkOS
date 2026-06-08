@@ -10,7 +10,7 @@ export default function Welcome({
 }: PageProps<{ laravelVersion: string; phpVersion: string }>) {
     return (
         <>
-            <Head title="Welcome" />
+            <Head title="CV Generator" />
             <div className="flex min-h-screen flex-col">
                 {/* Nav */}
                 <nav className="fixed top-0 z-50 w-full border-b bg-white/80 backdrop-blur dark:border-gray-800 dark:bg-gray-950/80">
